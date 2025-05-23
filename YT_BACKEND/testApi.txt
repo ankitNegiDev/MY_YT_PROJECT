@@ -1,0 +1,31 @@
+// for user when api is /api/user/signup
+{
+    "userName": "john_doe",
+    "email": "john.doe@example.com",
+    "password": "StrongPassword123",
+    "avatar": "https://example.com/avatar.jpg"
+}
+
+//  channel data
+
+{
+  "channelName": "Tech With Aryan",
+  "description": "Coding, tech and tutorials",
+  "channelBanner": "https://example.com/banners/tech.png"
+}
+
+
+// video data..
+
+{
+  "title": "Learn MongoDB in 30 minutes",
+  "thumbnailUrl": "https://example.com/mongo.png",
+  "channel": "6632d5c65f1a5c38e053ab47",
+  "description": "A short tutorial on MongoDB basics",
+  "category": "Education"
+}
+
+// comment data
+{
+  "text": "il ove you too much "
+}
