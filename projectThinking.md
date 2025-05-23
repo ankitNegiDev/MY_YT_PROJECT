@@ -234,3 +234,62 @@ This way, we get **flexible querying** and **easy population** of related data b
 
 * there are some feature left like **search video** , **like , dislike , subscribe** we will do it later like mostely once we do the mvp of our project.
 * **keep in mind we need to add a validation for password , userName, email a kind of manual validatio for enhance security.. check it later and think where should i place this logic in fronted or in backend**
+
+---
+
+## `Starting of the frontend`
+
+* in frontend we will be using ..
+  * (1) browser router
+  * (2) context api ---> if required then zustand (no - redux)
+  * (3) no arrow function
+  * (4) initially a basic layout using the tailwind css
+  * (5) we will create basic component also like for button etc we will see based on requirement.
+  * (6) initially we will not focus on optimization like reducing the re-rendrs -->  we will see it in v1 of our project.
+
+* ### `(1) understanding the folder structure mainly src`
+
+  * so src will look something lke this.
+
+```planetext
+client/
+├── public/
+├── src/
+│   ├── assets/              # Images, thumbnails
+│   ├── components/          # Reusable components like Header, Sidebar, VideoCard
+│   ├── pages/               # Home, VideoPage, ChannelPage, AuthPage
+│   ├── services/            # Axios API services
+│   ├── utils/               # Helper functions (auth utils, date formatting)
+|   |-- context/             # mostly auth related..
+│   ├── App.js
+│   ├── index.js
+│   └── routes.js            # React Router config
+
+
+/src
+  /components
+    /Header
+    /Sidebar
+    /VideoCard
+    /VideoPlayer
+    /CommentSection
+  /pages
+    Home.jsx
+    Login.jsx
+    VideoPage.jsx
+    ChannelPage.jsx
+  /context
+    AuthContext.jsx
+  /services
+    api.js
+  App.js
+  main.jsx
+```
+
+* so first we will create component part and then pages part ---> check for auth like we are sending the token in backend which is fine but check for how to send it in frontend like with just data or okey ---- check it later....
+
+* ## `(1) component`
+
+  * ### `(1) header component`
+
+    * keep in mind the search bar is in header..
