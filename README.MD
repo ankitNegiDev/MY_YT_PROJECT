@@ -147,7 +147,7 @@ Create a `.env` file inside `YT_BACKEND` with:
 ### API Overview
 
 - **Auth Endpoints**  
-  • `POST /api/user/singup` – register new user  
+  • `POST /api/user/signup` – register new user  
   • `POST /api/auth/login` – login and receive JWT  
 - **Video Endpoints**  
   • `POST /api/video` – upload new video (protected)  

@@ -67,7 +67,7 @@ In the `.env` file at the root of `YT_BACKEND`, define:
 ## Running the Backend
 
 - From within the `YT_BACKEND` folder, run the start command  
-- You will see logs confirming “Connected to MongoDB” and “Server is running on port <PORT>”  
+- You will see logs confirming “Connected to MongoDB” and `Server is running on port <PORT>`
 - Use a tool like Postman or your frontend application to test the various API endpoints:
   - Authentication: register, login, logout  
   - Videos: create, read, update, delete  
