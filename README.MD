@@ -6,10 +6,17 @@ This repository contains both the frontend and backend code for a YouTube-style 
 
 ---
 
+## `Project Demo video`
+
+- [Project demo video link](https://drive.google.com/file/d/1JsrwvqJHxpgWnUDfttcl1GvrLBLeWO1N/view)
+
+---
+
 ## Table of contents
 
 - [YouTube Clone (Frontend \& Backend)](#youtube-clone-frontend--backend)
   - [Overview](#overview)
+  - [`Project Demo video`](#project-demo-video)
   - [Table of contents](#table-of-contents)
   - [Key Features](#key-features)
   - [Technology Stack](#technology-stack)
