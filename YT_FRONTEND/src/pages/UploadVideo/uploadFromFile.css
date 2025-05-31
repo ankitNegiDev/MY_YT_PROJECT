@@ -1,0 +1,208 @@
+/* uploadFromFile.css */
+
+/* Form container */
+.upload-form {
+    background-color: #0f0f0f;           /* YouTube dark mode background */
+    color: #ffffff;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Input and textarea labels */
+.upload-form label {
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+/* Common input and textarea styles
+.upload-form input[type="text"],
+.upload-form textarea,
+.upload-form input[type="file"] {
+    background-color: #1f1f1f;
+    color: #fff;
+    border: 1px solid #3a3a3a;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+} */
+
+/** === Text Input === */
+.upload-form input[type="text"] {
+    background-color: #1f1f1f;
+    color: #fff;
+    border: 2px solid #3a3a3a !important;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+}
+
+/** === Textarea === */
+.upload-form textarea {
+    background-color: #1f1f1f;
+    color: #fff;
+    border: 2px solid #3a3a3a !important;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+    resize: vertical;
+    min-height: 100px;
+}
+
+/** === File Input === */
+.upload-form input[type="file"] {
+    background-color: #1f1f1f;
+    color: #fff;
+    border: 2px solid #3a3a3a;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+    cursor: pointer;
+}
+
+
+.upload-form input[type="text"]:focus,
+.upload-form textarea:focus,
+.upload-form input[type="file"]:focus {
+    border-color: #b5ff3e !important;
+}
+
+/** Blue focus for thumbnail and file inputs */
+.upload-form input[name="thumbnail"]:focus,
+.upload-form input[type="file"]:focus {
+    border-color: #983eff !important;
+    box-shadow: 0 0 0 2px rgba(62, 166, 255, 0.3);
+}
+
+/** === Textarea === */
+.upload-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/** === Extra Gap Before Upload Button === */
+.upload-form input[type="file"]:last-of-type {
+    margin-bottom: 1rem; /* More space below video file input */
+}
+
+/** === Submit Button === */
+.upload-form button {
+    background-color: #3ea6ff;
+    color: white;
+    padding: 0.8rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/** Hover effect on submit */
+.upload-form button:hover {
+    background-color: #1e8ce5;
+    transform: translateY(-1px);
+}
+
+/** Disabled state for submit */
+.upload-form button:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+}
+
+/** === Feedback Messages === */
+.loading-msg,
+.success-msg,
+.error-msg {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    line-height: 1.5;
+    position: relative;
+}
+
+/** Loading message */
+.loading-msg {
+    background-color: #222;
+    color: #e0e0e0;
+}
+
+/** Success message */
+.success-msg {
+    background-color: #1b5e20;
+    color: #b9fbc0;
+    border-left: 4px solid #4caf50;
+}
+
+/** Error message */
+.error-msg {
+    background-color: #2c0d0d;
+    color: #ffbcbc;
+    border-left: 0.5rem solid #e53935;
+    padding-left: 2.5rem;
+}
+
+/** Error icon */
+.error-msg::before {
+    content: '⚠️';
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+}
+
+/** === Responsive Design === */
+
+/** Tablet */
+@media screen and (max-width: 768px) {
+    .upload-form {
+        padding: 1.5rem;
+        margin: 1rem;
+        gap: 1.2rem;
+    }
+
+    .upload-form button {
+        font-size: 1rem;
+    }
+}
+
+/** Mobile */
+@media screen and (max-width: 480px) {
+    .upload-form {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .upload-form input[type="text"],
+    .upload-form textarea {
+        font-size: 0.95rem;
+        padding: 0.65rem;
+    }
+
+    .upload-form button {
+        font-size: 0.95rem;
+        padding: 0.65rem;
+    }
+}

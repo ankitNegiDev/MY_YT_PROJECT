@@ -16,6 +16,10 @@ const channelSchema= new mongoose.Schema({
     channelBanner:{
         type:String
     },
+    // public_id of the channel banner image from Cloudinary
+    channelBannerPublicId: {
+        type: String
+    },
     //a backword reference so that we know who is the owner of this channel.
     owner:{
         type:mongoose.Schema.Types.ObjectId,

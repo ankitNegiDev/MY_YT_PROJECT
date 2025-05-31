@@ -1,0 +1,111 @@
+/* Main wrapper */
+.error-page {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 1rem 2rem;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Inner container */
+.error-page-container {
+    background-color: #1c1c1c;
+    padding: 1.8rem 1.5rem;
+    border-radius: 0.75rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideUp 0.5s ease;
+}
+
+/* Image */
+.error-image {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 1.2rem;
+    object-fit: contain;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.1));
+    animation: popIn 0.4s ease;
+}
+
+/* Title */
+.error-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Message */
+.error-message {
+    font-size: 0.95rem;
+    color: #cccccc;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+}
+
+/* Button */
+.custom-link-button {
+    background-color: #3ea6ff;
+    color: #0f0f0f;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.custom-link-button:hover {
+    background-color: #65b8ff;
+    box-shadow: 0 0 8px rgba(100, 184, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes popIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .error-page-container {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .error-image {
+        max-width: 180px;
+    }
+
+    .error-title {
+        font-size: 1.2rem;
+    }
+
+    .error-message {
+        font-size: 0.9rem;
+    }
+
+    .custom-link-button {
+        font-size: 0.85rem;
+        padding: 0.45rem 1rem;
+    }
+}

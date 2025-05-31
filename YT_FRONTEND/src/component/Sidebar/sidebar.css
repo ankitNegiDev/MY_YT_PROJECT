@@ -1,0 +1,110 @@
+/* Sidebar base styles */
+.sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    bottom: 0;
+    background-color: #0F0F0F;
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: width 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+    margin-top: 4rem;
+}
+
+/* Expanded sidebar */
+.sidebar.expanded {
+    width: 220px;
+}
+
+/* Collapsed sidebar */
+.sidebar.collapsed {
+    width: 72px;
+}
+
+/* Sidebar nav */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* padding:  0; */
+}
+
+/* Each link */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.2s ease;
+    border-radius: 8px;
+}
+
+.sidebar-link:hover {
+    background-color: #383838;
+}
+
+/* Icon */
+.sidebar-icon {
+    font-size: 24px;
+    margin-right: 16px;
+}
+
+/* Hide label when collapsed */
+.sidebar.collapsed .sidebar-label {
+    display: none;
+}
+
+/* Label */
+.sidebar-label {
+    font-size: 16px;
+}
+
+/* ----------- Responsive Behavior ----------- */
+
+/* Mobile: still toggleable, but no content shift */
+@media (max-width: 740px) {
+    .sidebar {
+        /* border: 2px solid red; */
+        margin-top: 11rem;
+        /* top: -40px; */
+        /* top: -200px; */
+        /* border: 2px solid red; */
+        /* width: 220px; */
+        /* transform: translateX(-100%); */
+    }
+
+    .sidebar.expanded {
+        /* transform: translateX(0); */
+    }
+
+    .sidebar.collapsed {
+        /* transform: translateX(-100%); */
+    }
+}
+
+/* Tablet: show as collapsed only, still toggleable, no content shift */
+/* @media (min-width: 769px) and (max-width: 1024px) {
+    .sidebar.expanded {
+        width: 72px !important;
+        border: 2px solid red;
+    }
+
+    .sidebar.expanded .sidebar-label {
+        display: none !important;
+    }
+} */
+
+@media (max-width:400px){
+    .sidebar{
+        margin-top: 15rem;
+    }
+}
+/* @media (max-width:1000px){
+    .sidebar{
+        top: -120px;
+        margin-top: 15rem;
+    }
+} */

@@ -1,5 +1,5 @@
 // this is wehre we will recive the reuqest and get the data from the request body and call the service layer.
-
+import validator from "validator";
 import { JWT_SECRET_KEY } from "../config/serverConfig.js";
 import { registerUser as registerUserService, 
         loginUser as loginUserService,
@@ -13,13 +13,26 @@ export async function registerUser(req,res){
     try{
         // all validation we will write either in middleware or in validators ... we will see it later..
         // getting the required data from request body.
-        const {userName, email,password , avatar}=req.body;
+        const {userName, email,password}=req.body;
+        // Validate manually
+        // if (!userName || !email || !password) {
+        //     return res.status(400).json({ success: false, message: "All fields are required" });
+        // }
+
+        // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+        // if (!passwordRegex.test(password)) {
+        //     return res.status(400).json({ success: false, message: "Weak password" });
+        // }
+
+        // now getting the avatar or profile image url from the req.file.
+        const avatar = req.file?.path;
+        console.log("avatar in controller is  : ",avatar);
         // now we will pass all these details into the service layer..
         const userData={
             userName:userName,
             email:email,
             password:password,
-            avatar:avatar
+            avatar:avatar,
         }
         const newUser=await registerUserService(userData);
         // if user registerd sucess fully then ..
@@ -55,8 +68,31 @@ export async function registerUser(req,res){
 export async function loginUser(req,res){
     try{
         // first fetch all data from the request.body..
+        /*
+        problem is we are expecting usrname and email but from frontend we can send them based on user input but i want to write the validation in backend so i did like this .......
         const {userName,email,password}=req.body;
+        console.log("req boy in backend is : ",req.body);
+        console.log("userName in backend is : ",userName);
+        console.log("email in backend is : ", email);
+        */
+        const { loginValue, password } = req.body;
+        console.log("loging valeue ::::::::: ==========> ",loginValue);
+
+        let email = null;
+        let userName = null;
+
+        if (validator.isEmail(loginValue)) {
+            email = loginValue.toLowerCase();
+        } else {
+            userName = loginValue;
+        }
+        console.log("email after validation in backend is : ",email);
+        console.log("userName after validation in backend is : ",userName);
+
+        // ---- before calling login service we need to check naa does user exist with these email/username or password if yes then don't call the login service and  ------> no need to do it becuse in service we will return naa user with channel info if it has .... and on fronted we will check if user is having channel or not something like ...........
+
         const user=await loginUserService(userName,email,password);
+        console.log("user just before sending the reposne in login it should contain avatar ---> ",user);
         // once the login is done like if email is valid then user will be found else error will thrown in service and that error will be thrown to controller so here below line will never execute because that error will be catched by controller.
         console.log("User just before  login or creating the token:", user);
         console.log("User ID before signing token:", user._id);
@@ -93,12 +129,14 @@ export async function loginUser(req,res){
                 user: {
                     _id: user._id,
                     userName: user.userName,
-                    email: user.email
+                    email: user.email,
+                    avatar: user.avatar,
+                    channel:user.channel // correct we are sending channel info..
                 }
             }
         });
     }catch(error){
-        console.log("error in controller in login \n");
+        console.log("error in controller in login \n",error);
         return res.status(error.status || 500).json({
             success: false,
             message: error.message || "Internal Server Error",

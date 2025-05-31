@@ -1,0 +1,36 @@
+
+/* Home Page Grid Layout */
+.home-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 24px;
+    background-color: #0f0f0f;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    /* border: 2px solid red; */
+    /* margin-top: 9rem; */
+}
+
+/* Adjust grid for smaller screens */
+@media (max-width: 768px) {
+    .home-container {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .home-container {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        padding: 0.5rem;
+    }
+}
+
+/* Prevent shifting on smaller screens */
+@media (max-width: 1024px) {
+    .sidebar-expanded.home-container,
+    .sidebar-collapsed.home-container {
+        margin-left: 0;
+    }
+}
+

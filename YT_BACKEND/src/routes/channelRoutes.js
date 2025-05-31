@@ -3,12 +3,13 @@
 import express from 'express';
 import { authenticateToken } from '../middleware/autMiddleware.js';
 import { createChannel, deleteChannelById, fetchChannelByUserId, getAllchanels, getChannelById, updateChannelById } from '../controllers/channelController.js';
+import channelBannerUpload from '../middleware/channelBannerUpload.js';
 
 const channelRouter=express.Router();
 
 // to create the channel or when api url start with /
 
-channelRouter.post('/', authenticateToken,createChannel); // protected route...
+channelRouter.post('/', authenticateToken ,channelBannerUpload.single("banner"),createChannel); // protected route...
 
 // to get all the chanels.. / get request.
 channelRouter.get('/',authenticateToken,getAllchanels);

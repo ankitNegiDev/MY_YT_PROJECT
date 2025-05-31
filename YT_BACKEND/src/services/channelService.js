@@ -104,6 +104,7 @@ export async function fetchChannelByUserId(id){
             error.status = 400; // Bad Request
             throw error;
         }
+        console.log("id in service is : ------------> ",id);
         const fetchedChannel=await fetchChannelByUserIdRepository(id);
         if(!fetchedChannel){
             const error = new Error(`Sorry Channel not found for UserID : ${id} ... on db levle validation`);

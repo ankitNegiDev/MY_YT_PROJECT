@@ -11,13 +11,18 @@
 
 
 import { Comment } from '../schema/commentSchema.js';
-import {Video} from '../schema/videoSchema.js';
+import { Video } from '../schema/videoSchema.js';
 
 // (1) create a comment when video id is passed ... because we will attach each comment to a specific video..
 
 export async function createComment(text, userId, videoId) {
     try {
-        const newComment = await Comment.create({ text, userId, videoId });
+        let newComment = await Comment.create({ text, userId, videoId });
+        // Populating userId with name and avatar before returning becuse if we don't do this then in frontend for a new comment we will not get userAvater although after refereshing the page we can get but that's not what we want.
+        newComment = await newComment.populate({
+            path: 'userId',
+            select: 'userName avatar'
+        });
         return newComment;
     } catch (error) {
         console.log("error occure in repository create comment", error);
@@ -43,44 +48,68 @@ export async function addCommentToVideo(videoId, commentId) {
         }
         return updatedVideo;
     } catch (error) {
-        console.log("error occured in addcommenttovideo in repository : ",error);
+        console.log("error occured in addcommenttovideo in repository : ", error);
         throw error;
     }
 }
 
 // (2) get comment by video id 
 
-export async function getCommentByVideoId(videoId){
-    try{
+export async function getCommentByVideoId(videoId) {
+    try {
         // const allComments=await Comment.find({videoId}).populate('userId','userName avatar').sort({timestamp:-1});
-    const allComments = await Comment.find({ videoId }).populate('userId', 'username avatar').sort({ timestamp: -1 });
-    return allComments;
-    }catch(error){
-        console.log("error occured in getComemntByVideoId in repository : ",error);
+        //! const allComments = await Comment.find({ videoId }).populate('userId', '+username avatar').sort({ timestamp: -1 }); // this is the worst bug that i got........ its userName not username ...............
+        // const allComments = await Comment.find({ videoId }).populate('userId , channel', 'userName avatar channel').sort({ timestamp: -1 });
+        // const allComments = await Comment.find({ videoId })
+        //     .populate({
+        //         path: 'userId',
+        //         select: 'userName avatar channel',
+        //         populate: {
+        //             path: 'channel',
+        //             select: 'name description',
+        //         }
+        //     })
+        //     .sort({ timestamp: -1 });
+
+        const allComments = await Comment.find({ videoId })
+            .populate({
+                path: 'userId',
+                select: 'userName avatar channel',
+                populate: {
+                    path: 'channel',
+                    select: 'channelName description bannerImage' // Add fields you need
+                }
+            })
+            .sort({ timestamp: -1 });
+
+
+        return allComments;
+    } catch (error) {
+        console.log("error occured in getComemntByVideoId in repository : ", error);
         throw error;
     }
 }
 
 // (3) update comment by id .
 
-export async function updateCommentById(commentId,text){
-    try{
-        const updatedComment=await Comment.findByIdAndUpdate(commentId,{text},{new:true});
+export async function updateCommentById(commentId, text) {
+    try {
+        const updatedComment = await Comment.findByIdAndUpdate(commentId, { text }, { new: true });
         return updatedComment;
-    }catch(error){
-        console.log("eror in repository in update comment",error);
+    } catch (error) {
+        console.log("eror in repository in update comment", error);
         throw error;
     }
 }
 
 // (4) delete comment by id ...
 
-export async function deleteCommentById(commentId){
-    try{
-        const deletedComment=await Comment.findByIdAndDelete(commentId);
+export async function deleteCommentById(commentId) {
+    try {
+        const deletedComment = await Comment.findByIdAndDelete(commentId);
         return deletedComment;
-    }catch(error){
-        console.log("sorry errro in repository in deletecommentbyid : ",error);
+    } catch (error) {
+        console.log("sorry errro in repository in deletecommentbyid : ", error);
         throw error;
     }
 }

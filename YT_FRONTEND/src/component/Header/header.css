@@ -1,0 +1,476 @@
+/* Base transitions for buttons and links */
+button,
+.sidebar-link,
+.category-btn,
+.search-btn {
+    transition: all 0.3s ease;
+}
+
+/* Header wrapper */
+.header-wrapper {
+    width: 100%;
+    background-color: #0F0F0F;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    padding-top: 0.5rem;
+    /* border: 2px solid red; */
+}
+
+/* Header top bar */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    flex-wrap: wrap;
+    /* gap: 1rem; */
+    /* border: 2px solid green; */
+}
+
+/* Left section: hamburger + logo */
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    /* border: 2px solid aqua; */
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    gap: 0rem;
+    /* border: 2px solid red; */
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #fff;
+    /* border: 2px solid blue; */
+}
+
+/* Hamburger menu */
+.hamburger-menu {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.hamburger-menu:hover {
+    color: #3ea6ff;
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* Search container */
+.search-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 180px;
+    padding: 0.25rem;
+}
+
+/* Search form */
+.search-form {
+    display: flex;
+    width: 100%;
+    max-width: 38rem;
+    height: 2.5rem;
+    background-color: #121212;
+    border-radius: 3rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    border: 2px solid rgb(72, 72, 72);
+}
+
+/* Search input */
+.search-input {
+    flex: 1;
+    padding: 0 1rem;
+    background-color: transparent;
+    color: #f1f1f1;
+    font-size: 0.875rem;
+    border: 2px solid transparent;
+    /* border-right: none; */
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #3ea5ffce;
+    box-shadow: 0 0 0 2px rgba(62, 166, 255, 0.3);
+}
+
+/* Search button */
+.search-btn {
+    width: 3.5rem;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #f1f1f1;
+    border: 2px solid transparent;
+    border-left: none;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    /* border: 1px solid red; */
+    border-left: none;
+    margin-left: 0rem;
+}
+
+.search-btn:hover {
+    background-color: #383838;
+    /* border-width: 2px; */
+    color: #3ea6ff;
+    transform: scale(1.05);
+}
+
+/* User section */
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* Upload button */
+.video-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem 1rem;
+    background-color: #38e7ed7b; /* Refined warm orange */
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    transition: 
+        background-color 0.3s ease,
+        transform 0.25s ease,
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+    box-shadow: 0 -3px 10px rgba(255, 110, 58, 0.165);
+    position: relative;
+    overflow: hidden;
+    /* border: 2px solid red; */
+}
+
+/* Hover effect */
+.video-btn:hover {
+    background-color: #ff8352b9; /* Slightly brighter for hover */
+    color: #ffffff;
+    transform: translateY(-1px) scale(1.05);
+    box-shadow: 0 3px 10px rgba(255, 109, 58, 0.35);
+}
+
+/* Soft pulse glow on hover */
+.video-btn::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(243, 243, 243, 0.092), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.video-btn:hover::after {
+    opacity: 1;
+}
+
+.video-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.video-btn:hover svg {
+    transform: rotate(-5deg) scale(1.1);
+}
+
+
+/* Profile image */
+.profile-img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 
+        transform 0.4s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 0 0 transparent;
+}
+
+/* On hover: soft glow + border highlight */
+.profile-img:hover {
+    border-color: #3ea6ff;
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(62, 166, 255, 0.5);
+}
+
+
+.user-greeting {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: color 0.3s ease;
+    animation: fadeInGreeting 0.5s ease-out both;
+}
+
+.user-greeting:hover {
+    color: #3ea6ff;
+}
+
+/* Optional subtle fade-in */
+@keyframes fadeInGreeting {
+    from {
+        opacity: 0;
+        transform: translateY(-2px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.signin-btn {
+    background: linear-gradient(145deg, #121212, #1a1a1a);
+    border: 1px solid #3ea6ff;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.25s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 0 6px rgba(62, 166, 255, 0.3);
+    backdrop-filter: blur(2px);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.signin-btn:hover {
+    color: #ffffff;
+    background-color: #3ea6ff1a;
+    box-shadow: 0 0 12px rgba(62, 166, 255, 0.7);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Category bar */
+.category-bar {
+    display: flex;
+    overflow-x: auto;
+    padding: 0.75rem 1.5rem;
+    background-color: #0f0f0f;
+    scrollbar-width: none;
+    gap: 0.5rem;
+    /* border-bottom: 1px solid #222; */
+    /* border: 2px solid red; */
+}
+.category-bar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Category button */
+.category-btn {
+    background: linear-gradient(to right, #242424, #2e2e2e);
+    color: #e0e0e0;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #3a3a3a;
+    border-radius: 1.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+    /* border: 2px solid red; */
+    margin-right: 0.5rem;
+}
+
+.category-btn:hover {
+    background: #3ea6ff20;
+    color: #3ea6ff;
+    transform: translateY(-5px);
+    box-shadow: 0 2px 7px rgba(62, 166, 255, 0.3);
+}
+
+/* Active state */
+.category-btn.active {
+    background: #3ea6ff;
+    color: #0f0f0f;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 0 8px rgba(62, 166, 255, 0.5);
+    transform: scale(1.05);
+}
+
+
+/* Profile modal */
+.profile-modal {
+    position: absolute;
+    right: 7px;
+    top: 66px;
+    width: 200px;
+    background-color: rgba(24, 24, 24, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid #2c2c2c;
+    border-radius: 10px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    z-index: 100;
+    box-shadow: 0 8px 20px rgba(55, 26, 26, 0.635);
+    animation: fadeIn 0.2s ease-in-out;
+    /* border: 2px solid red; */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Buttons inside the modal */
+.profile-modal button {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.88rem;
+    border-radius: 6px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Hover effect */
+.profile-modal button:hover {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+/* Logout button specifically */
+.logout-btn {
+    color: #ff5c5c;
+    font-weight: 500;
+}
+.logout-btn:hover {
+    color: #ff8989;
+    background-color: #2b1a1a;
+}
+
+
+/* Responsive breakpoints */
+@media (max-width: 1024px) {
+    .hamburger-menu {
+        display: block;
+    }
+}
+@media (max-width : 780px){
+    .profile-modal{
+        top: 150px;
+        right: 190px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-top {
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-container {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .user-section {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-form {
+        width: 100%;
+    }
+
+    .category-btn {
+        margin-top: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-modal{
+        top: 150px;
+        right: 100px;
+    }
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .search-btn {
+        width: 2.5rem;
+    }
+
+    .search-input {
+        font-size: 0.8125rem;
+    }
+
+    .user-greeting {
+        font-size: 0.75rem;
+    }
+
+    .video-btn {
+        font-size: 0.8125rem;
+    }
+
+}
+
+@media (max-width: 320px){
+    .profile-modal{
+        top: 150px;
+        right: 10px;
+    }
+}

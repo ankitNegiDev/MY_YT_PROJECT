@@ -1,0 +1,261 @@
+/* Wrapper for the entire comment section */
+.comment-list {
+    padding: 1rem;
+    background-color: #121212;
+    border-radius: 0.5rem;
+    color: #ffffff;
+}
+
+/* Loading section with spinner */
+.comment-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 2rem 1rem;
+    min-height: 11.25rem; /* 180px */
+    text-align: center;
+}
+
+.comment-spinner {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0.25rem solid rgba(255, 255, 255, 0.1);
+    border-top: 0.25rem solid #3ea6ff;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Individual comment item */
+.comment-item {
+    display: flex;
+    align-items: flex-start;
+    background-color: #1e1e1e;
+    padding: 1rem;
+    border-radius: 0.625rem;
+    margin-bottom: 1rem;
+    gap: 0.8rem;
+    position: relative;
+}
+
+/* Add spacing to the first comment */
+.comment-item:first-of-type {
+    margin-top: 1.5rem;
+}
+
+/* User avatar */
+.comment-avatar {
+    width: 2.625rem;
+    height: 2.625rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Content container */
+.comment-content {
+    flex: 1;
+}
+
+/* Header (username + time) */
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.comment-username {
+    font-weight: 600;
+    color: #3ea6ff;
+    font-size: 0.95rem;
+}
+
+.comment-time {
+    font-size: 0.8rem;
+    color: #aaaaaa;
+}
+
+/* Comment text */
+.comment-text {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Edit/Delete actions */
+.comment-actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 1;
+}
+
+.comment-edit-button,
+.comment-delete-button {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 0.75rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    box-shadow: 0 0 0 transparent;
+}
+
+/* Edit Button Hover */
+.comment-edit-button:hover {
+    background-color: #3ea6ff;
+    color: #000;
+    box-shadow: 0 0 0.375rem rgba(62, 166, 255, 0.5);
+}
+
+/* Delete Button Hover */
+.comment-delete-button {
+    color: #ff4d4f;
+}
+
+.comment-delete-button:hover {
+    background-color: #ff4d4f;
+    color: #fff;
+    box-shadow: 0 0 0.375rem rgba(255, 77, 79, 0.6);
+}
+
+/* ======================== */
+/* Inline edit input styles */
+/* ======================== */
+
+.inline-edit-form {
+    margin-top: 8px;
+    background-color: #1e1e1e;
+    padding: 10px;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inline-edit-input {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 10px;
+    transition: border-color 0.2s ease;
+}
+
+.inline-edit-input:focus {
+    border-color: #3ea6ff;
+}
+
+/* Buttons container */
+.inline-edit-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+/* Save (Update) button */
+.inline-edit-save {
+    background-color: #3ea6ff;
+    color: white;
+    padding: 6px 14px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.inline-edit-save:hover {
+    background-color: #1e88e5;
+}
+
+/* Cancel button */
+.inline-edit-cancel {
+    background-color: transparent;
+    color: #ccc;
+    padding: 6px 14px;
+    font-size: 14px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.inline-edit-cancel:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* ======================== */
+/* Responsive Adjustments   */
+/* ======================== */
+
+@media (max-width: 768px) {
+    .comment-avatar {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .comment-actions {
+        top: 0.8rem;
+        right: 0.8rem;
+        gap: 0.4rem;
+    }
+
+    .comment-edit-button,
+    .comment-delete-button {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.65rem;
+    }
+
+    .inline-edit-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .inline-edit-save,
+    .inline-edit-cancel {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .comment-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .comment-avatar {
+        margin-bottom: 0.5rem;
+    }
+
+    .comment-actions {
+        position: static;
+        margin-top: 0.5rem;
+        justify-content: flex-start;
+        gap: 0.625rem;
+    }
+
+    .comment-edit-button,
+    .comment-delete-button {
+        width: auto;
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}

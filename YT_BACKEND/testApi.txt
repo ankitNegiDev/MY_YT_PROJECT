@@ -3,7 +3,7 @@
     "userName": "john_doe",
     "email": "john.doe@example.com",
     "password": "StrongPassword123",
-    "avatar": "https://example.com/avatar.jpg"
+    "avatar": "https://i.pravatar.cc/150?img=5"
 }
 
 //  channel data
@@ -11,18 +11,19 @@
 {
   "channelName": "Tech With Aryan",
   "description": "Coding, tech and tutorials",
-  "channelBanner": "https://example.com/banners/tech.png"
+  "channelBanner": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&h=300"
 }
 
 
 // video data..
 
 {
-  "title": "Learn MongoDB in 30 minutes",
-  "thumbnailUrl": "https://example.com/mongo.png",
+  "title": "Gharwali songs",
+  "videoUrl":"https://www.youtube.com/watch?v=aUCb8qdjQMI",
+  "thumbnailUrl": "",
   "channel": "6632d5c65f1a5c38e053ab47",
   "description": "A short tutorial on MongoDB basics",
-  "category": "Education"
+  "category": "Music"
 }
 
 // comment data

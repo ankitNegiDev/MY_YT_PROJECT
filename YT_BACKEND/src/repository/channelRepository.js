@@ -76,6 +76,7 @@ When we will fetch a channel by userId, it’s very useful to populate the video
 export async function fetchChannelByUserId(userId) {
     try {
         const channel = await Channel.findOne({ owner: userId }).populate('videos');
+        console.log("channel in rpeository is : ",channel);
         return channel;
     } catch (error) {
         console.log("error occur in repos in fetchChannelByuserId helper function : ", error);

@@ -30,11 +30,19 @@ export async function createChannel(req, res) {
         const ownerId = req.user._id;
         console.log("the owner id that we are getting from req.user.id is : ", ownerId);
 
+        // getting the bannerl url form the frontend 
+
+        // Include uploaded banner URL from req.file if available
+        const bannerUrl = req.file?.path || "";
+
         // adding owner into channel..
         const channelData = {
             ...req.body,
-            owner: ownerId
+            owner: ownerId,
+            channelBanner:bannerUrl
         }
+        console.log("-------- > channel data with channel banner is : ",channelData);
+        console.log("channel data . channle banner is : ",channelData.channelBanner);
         // const createdChannel=await createChannelService(channelData);
         const { createdChannel, updatedUser } = await createChannelService(channelData);
 
@@ -126,6 +134,7 @@ export async function fetchChannelByUserId(req, res) {
     try {
         // get the id from the url params or path params
         const userId = req.params.id;
+        console.log("user id in backend is : ",userId);
         const response = await fetchChannelByUserIdService(userId);
         return res.status(200).json({
             sucess: true,

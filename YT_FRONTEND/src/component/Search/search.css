@@ -1,0 +1,36 @@
+
+
+.search-page-container {
+    padding: 1.25rem; 
+    max-width: 90vw;
+    margin: 0 auto;
+    border: 2px solid red ;
+}
+
+.search-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 1.25rem;
+    text-align: center;
+    margin-top: 1rem;
+    /* border: 2px solid red; */
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.7rem;
+    margin-left: 5rem;
+}
+
+@media (min-width: 37.5em) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 56.25em) {
+    .video-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

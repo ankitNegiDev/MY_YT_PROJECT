@@ -276,6 +276,7 @@ client/
   /pages
     Home.jsx
     Login.jsx
+    Signup.jsx
     VideoPage.jsx
     ChannelPage.jsx
   /context
@@ -293,3 +294,100 @@ client/
   * ### `(1) header component`
 
     * keep in mind the search bar is in header..
+    * its easy to built it since we assume if there is a user is preent in localstorage then show either login or user data like conditional rendering..
+
+  * ### `(2) VideoCard`
+
+    * this is also simple we just assume that we will get the single video data and we just display it.. providing a link on whole video details.
+
+---
+
+* ## `(3) Home page`
+
+  * now the problem is in backend i did not include any video url so my video are not playing ........ now i have two option.. either i go for directly storing video in blob format using multer on cloudineary but ..... what i am thinking is we will do that in our version1.
+  * currently what we do is store the video id in the db keep in mind this is the id that yt provide on the url for each video and we can call the api url for yt with video id whenever we need to do ... But in this we have every time to create the url instead of this we will store the url in db
+
+---
+
+* in url approach .... first we will ask the user to paste the url and then we will extract id from it in bavckend and then save this yt video id as videoId and then when on frontend to show it i will call the my api to get all videos and then create a link like using that yt video id and using i frame i can emmed that yt video directly...
+
+* every thing is fine .... but the problem is i take the yt url as input from the usr while uploading the video right and store that url and in bakcend i extract id from that url and then when any one hit /video then i will show all video document and its frontend responsibility to make a call on yt by using the videoId which is techinally a yt video id so ultimately we are calling yt servers and i did not understand then why we are storing the id in backend and fetching it in frontend ... we can simply ask user to past yt url and call it that's it all videos will be shown anyway i did not get it ... and so we will use cloudinary where user can upload raw video --- like 50-100mb size and user can upload a profile phot else just think if i ask user for profile photo then user has to first host that image somewhere and then past the url which makes no sense....
+
+---
+
+* ## `using cloudinary`
+
+  * ### `step 1`
+
+    * install multer , cloudinary , and multer-storage-cloudinary packages
+    * multer will handel filte upload , cloudinary searvers as storage point and multer-storage-cloudinary this npm package will help us to directly store iamge or video on the cloudinary.. not like first stored tempory on server then upload it to cloudinary.
+    * similary we did on aws using s3 buccket that suppor blob storage.......(refer notes)
+
+  * ### `step 2`
+
+    * go to the cloudinary signup and then do all the basic thing like upload assests etc then go to ur dashboard then copy three things which are important
+
+        ```js
+        CLOUDINARY_CLOUD_NAME=dqehwpc7b
+        CLOUDINARY_API_KEY=1234567890abcdef
+        CLOUDINARY_API_SECRET=your_api_secret_here
+
+        ```
+
+    * once u copy paste it inside the .env file.
+
+  * ### `step 3`
+
+    * now create a cloudinary config file and setup configuration just like we setup for mongodb.
+
+        ```js
+        import {v2 as cloudinary} from 'cloudinary';
+
+        // now setting up sdk with our account details or we can say linking our account to cloudinary sdk.
+
+        cloudinary.config({
+            cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+            api_key: process.env.CLOUDINARY_API_KEY,
+            api_secret: process.env.CLOUDINARY_API_SECRET
+        });
+
+        export default cloudinary;
+        ```
+
+  * ### `step 4`
+
+    * now create a multer middleware for profile photo image upload..
+
+<!-- chek it why the channel is not coming with  -->
+
+* now currently i implement this ... when user signup and loged in for the first time then ovisouly they will have not any channel right but assume user create a channel and we updated user like we add the channel info in the user -- in backend and we return updated user to frontend that have channel info ... but on logout the user is currently removed from the local storage ...that means its channel info is already removed while user is  removed..........But i want when some credientials like userName,password is same as the user that created the channel before then we can add that channel info that same user ??
+
+---
+
+* ## `Feature need to add`
+
+  * (1) on home page or side bar call a api on db to find all user in db and show their avatar on the sidebar ... something like real yt and when user click on it then their channel should open.
+  * (2) currently when user log out then we are clearing the local storage -- which is fine but we need to check in sign In backend api that is this user exist in db and if it have channel then return the updated user with channel info in it...by doing this we make sure that user already created channel does no lost its channel..
+  * (3) now courrently the multiple user can comment but any user is able to edit and delete the comment of any user  we need to prevent it..
+  * (4) at last go for the channel banner also becuase in schema we have a channel banner so while creaating a channel add a file upload for channel banner and (think can we create the channel banner from the yt url or not ..) else we will upload ... and on while creating channel show the user avatar with name so that user is full sure that he is creating his own channel..
+
+  * (5) like and dislike .... (for this we need to store) more filed in our video schema like which user liked the video and which user did no liked the video...and both will be array that store user reference like mongoose id so that we can run a loop to check is this user already likes or dislikes if yes then reverse it else increase or decrease the count.
+
+---
+
+* things that are still left ---
+* (1) a header bar on the video player page
+* (2) some video on the right side of the video player page just like yt.
+* (3) on the homepage video are not shifting to the left..
+
+---
+
+* task left ---> fix the sidebar on the profile page, on video page -- try to give sidebar if it looks good else just ad dthe profileheader its fine...
+* on search page header and side bar is must
+
+* comment cheak-- but its fine -- check later if u have time...
+
+---
+
+* mostly things are done...before going to version 2 --> do changes in the layout -- or fix it currently there are two header and two sidebar--> which fine for version 1 but update it later-->
+* just think how this sidebar is wroking -- we can acchive it with context but why layout is breaking on multiple page..

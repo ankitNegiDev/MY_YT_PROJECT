@@ -1,35 +1,75 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+
+// import { Route, Routes } from 'react-router-dom'
+// import './App.css'
+// import Header from './component/Header/Header'
+// import Home from './pages/Home'
+// import SignIn from './pages/SignIn'
+// import SignUp from './pages/SignUp'
+// import Sidebar from './component/Sidebar/Sidebar'
+
+// function App() {
+
+//     return (
+//         <>
+//             {/* <div className='bg-green-300'>Hello world </div> */}
+//             <Header/>
+
+
+//             <Routes>
+
+//                 <Route>
+//                     <Route path="/" element={<Home />} />
+//                     <Route path='/signin' element={<SignIn/>} />
+//                     <Route path='/signup' element={<SignUp/>} />
+//                 </Route>
+//             </Routes>
+//         </>
+//     )
+// }
+
+// export default App
+
+
+
+// src/App.jsx
+
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home/Home";
+import SignIn from "./pages/SignIn/SignIn";
+import VideoPlayer from "./pages/VideoPlayer/VideoPlayer";
+import Signup from "./pages/SignUp/SignUp";
+import Layout from './component/Layout/Layout'
+import UploadVideo from "./pages/UploadVideo/UploadVideo";
+import CreateChannel from "./pages/Channel/Channel";
+import Profile from "./pages/Profile/Profile";
+import EditVideo from "./component/EditVideo/EditVideo";
+import Search from "./component/Search/Search";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        <Routes>
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+            {/* Layout routes (with sidebar and header) */}
+            <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+            </Route>
+
+            {/* Standalone routes without sidebar/header */}
+            {/* <Route path="/" element={<Home/>}/> */}
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="video/:videoId" element={<VideoPlayer />} />
+            <Route path="/uploadVideo" element={<UploadVideo/>} />
+            <Route path="/createChannel" element={<CreateChannel/>} />
+            <Route path="/profile/:channelId" element={<Profile />} />
+            <Route path="/editVideo/:id" element={<EditVideo />} />
+            <Route path="/search/videos" element={<Search/>} />
+
+        </Routes>
+    );
 }
 
-export default App
+export default App;

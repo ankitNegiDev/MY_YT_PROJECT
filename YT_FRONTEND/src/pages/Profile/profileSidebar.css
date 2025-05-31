@@ -1,0 +1,92 @@
+/* ---------------- Base Container ---------------- */
+.profile-sidebar {
+    background-color: #0F0F0F;
+    color: white;
+    height: 100vh;
+    overflow-y: hidden;
+    position: fixed;
+    /* position: sticky; */
+    top: 56px;
+    transition: width 0.3s ease;
+    border-right: 1px solid #222;
+    z-index: 900;
+    /* border: 2px solid aqua !important; */
+
+}
+
+.profile-expanded {
+    width: 200px !important;
+}
+
+.profile-collapsed {
+    width: 72px !important;
+}
+
+/* ---------------- Nav Styles ---------------- */
+.profile-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+/* ---------------- Link Styles ---------------- */
+.profile-sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: white;
+    gap: 1rem;
+    transition: background-color 0.2s, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.profile-sidebar-link:hover {
+    background-color: #222;
+    transform: translateX(2px);
+}
+
+.profile-sidebar-icon {
+    font-size: 1.5rem;
+    min-width: 24px;
+    text-align: center;
+}
+
+.profile-sidebar-label {
+    font-size: 0.95rem;
+    transition: opacity 0.3s ease;
+}
+
+/* ---------------- Scrollbar ---------------- */
+.profile-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.profile-sidebar::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 3px;
+}
+
+/* ---------------- Responsive ---------------- */
+
+/* Tablet view: always collapsed */
+@media (max-width: 1020px) {
+    .profile-sidebar {
+        top: 69px;
+        /* border: 2px solid red; */
+        /* background-color: #333; */
+        /* width: 72px !important; */
+    }
+
+    .profile-sidebar-label {
+        /* display: none; */
+    }
+}
+
+/* Mobile view: hidden */
+@media (max-width: 640px) {
+    .profile-sidebar {
+        /* display: none; */
+    }
+}
+

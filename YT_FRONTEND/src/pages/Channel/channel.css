@@ -1,0 +1,153 @@
+/* Base Styles - Mobile First (Up to 599px) */
+.create-channel-wrapper {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.create-channel-heading {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #3ea6ff;
+    text-align: center;
+}
+
+.create-channel-form {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.create-channel-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+/* Label Text with Asterisk */
+.label-text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+.required-star {
+    color: red;
+    font-size: 16px;
+}
+
+.create-channel-form input,
+.create-channel-form textarea {
+    margin-top: 6px;
+    padding: 10px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 6px;
+    font-size: 14px;
+    resize: none;
+}
+
+.create-channel-form input:focus,
+.create-channel-form textarea:focus {
+    border-color: #3ea6ff;
+    outline: none;
+}
+
+.create-channel-form button {
+    padding: 12px;
+    background-color: #3ea6ff;
+    color: #0f0f0f;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.create-channel-form button:hover {
+    background-color: #50b8ff;
+}
+
+.create-channel-form button[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Spinner for Loading */
+.loading-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 3px solid #ffffff;
+    border-top: 3px solid #3ea6ff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Feedback Messages */
+.error-msg {
+    color: #ff4d4f;
+    font-size: 14px;
+    text-align: center;
+}
+
+.success-msg {
+    color: #4caf50;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Tablet Styles (600px to 1023px) */
+@media (min-width: 600px) and (max-width: 1023px) {
+    .create-channel-heading {
+        font-size: 26px;
+    }
+
+    .create-channel-form {
+        max-width: 500px;
+        padding: 24px;
+        gap: 18px;
+    }
+}
+
+/* Laptop/Desktop Styles (1024px and above) */
+@media (min-width: 1024px) {
+    .create-channel-heading {
+        font-size: 28px;
+    }
+
+    .create-channel-form {
+        max-width: 600px;
+        padding: 28px;
+        gap: 20px;
+        border-radius: 12px;
+    }
+}

@@ -1,0 +1,118 @@
+/* Container for sign-in page */
+.signin-container {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Heading */
+.signin-heading {
+    font-size: 26px;
+    font-weight: 600;
+    color: #3ea6ff;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* Error message */
+.signin-error-message {
+    background-color: #ff4d4f;
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Form */
+.signin-form {
+    background-color: #1e1e1e;
+    padding: 28px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Input fields */
+.signin-text-input {
+    padding: 12px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 6px;
+    font-size: 15px;
+    width: 100%;
+}
+
+.signin-text-input:focus {
+    border-color: #3ea6ff;
+    outline: none;
+}
+
+/* Submit button */
+.signin-submit-button {
+    padding: 12px;
+    background-color: #3ea6ff;
+    color: #0f0f0f;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.signin-submit-button:hover {
+    background-color: #50b8ff;
+}
+
+/* Footer text */
+.signin-footer-text {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #bbbbbb;
+    text-align: center;
+}
+
+.signin-link {
+    color: #3ea6ff;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.signin-link:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .signin-form {
+        padding: 20px;
+    }
+
+    .signin-heading {
+        font-size: 22px;
+    }
+
+    .signin-text-input {
+        font-size: 14px;
+    }
+
+    .signin-submit-button {
+        font-size: 15px;
+    }
+}
+

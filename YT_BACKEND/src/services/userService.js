@@ -53,13 +53,13 @@ export async function loginUser(userName,email,password){
         // if email exist and we found user with email then no need to check it with userName..
         if (email) {
             user = await findUserByEmailId(email);
-            console.log("user by email ---- > ",user);
+            console.log("user by email ------------------------------------ > ",user);
         }
         // if email does not exist or we got null in user from the findUserByEmailId then we will check it with userName..
         console.log("userName is : ",userName);
         if (!user && userName) {
             user = await finduserByUserName(userName);
-            console.log("user got from the userName ---> ",user);
+            console.log("user got from the userName------------- ---> ",user);
         }
 
         if(!user){
@@ -83,6 +83,9 @@ export async function loginUser(userName,email,password){
             _id:user._id,
             userName: user.userName,
             email: user.email,
+            avatar: user.avatar,
+            channel:user.channel
+            // we can also return the channel info here if user already exxisting in db ..
         };
     }catch(error){
         console.log("error occure in service : loging and error is : ",error);

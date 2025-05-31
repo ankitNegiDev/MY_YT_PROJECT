@@ -23,6 +23,8 @@ export async function registerUser(userData){
 export async function findUserByEmailId(email) {
     try {
         const user = await User.findOne({ email });
+        console.log("--------------------------- user with email in repository layer --- cheking does it have avator or nt \n", user);
+
         return user;
     } catch (error) {
         console.log("error occure in finduserbyemail in repo\n");
@@ -33,6 +35,7 @@ export async function findUserByEmailId(email) {
 export async function finduserByUserName(userName){
     try{
         const user=await User.findOne({userName});
+        console.log("--------------------------- user with user name in repository layer --- cheking does it have avator or nt \n",user);
         return user;
     }catch(error){
         console.log("error occur isn finduserby user anme in repo");
@@ -82,7 +85,7 @@ By default, Mongoose does not run schema validations when using update methods l
     updateOne
     updateMany
  * This means fields like email, required, minLength, match, etc., won’t be validated unless you explicitly tell Mongoose to do so.
- * ✅ runValidators: true ensures:
+ * runValidators: true ensures:
 Mongoose applies all the schema validation rules on the updateData before updating.
  */
 
@@ -117,7 +120,7 @@ export async function deleteUser(userId){
 /**
  * technically, the data is deleted from the database, so we might wonder: "Why care about returning the password if it's already gone?"
 
-✅ Yes — Technically:
+Yes — Technically:
 If we're deleting a user, then the password stored in DB is already gone. So returning it doesn't affect your database anymore.
 
 ❗But — Why we Still Should NOT Return Password:
