@@ -5,7 +5,7 @@ import axios from 'axios';
 // this base URL will be added before every api endpoint automatically
 // For example if api is :  api.get('/videos') -> actually becomes 'http://localhost:5000/api/videos'
 let api = axios.create({
-    baseURL: 'http://localhost:3000/api'
+    baseURL: 'https://my-yt-project.onrender.com/api'
 });
 
 // Step 3: Adding a request interceptor
