@@ -149,7 +149,8 @@ Create a `.env` file inside `YT_BACKEND` with:
 ### Running the Server
 
 - Start the server by running the start command provided  
-- Expect console logs confirming a successful connection to MongoDB and that the server is listening on the specified port  
+- Expect console logs confirming a successful connection to MongoDB and that the server is listening on the specified port
+- to check all functionality plse create a channel after login else unsigned user won't access the channel of other.
 
 ### API Overview
 

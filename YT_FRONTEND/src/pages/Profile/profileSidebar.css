@@ -69,6 +69,8 @@
 
 /* ---------------- Responsive ---------------- */
 
+/* min-width:400px  ---> means ya to width 400px ho minimum ya use se jada then changes will reflect..*/
+/* max-width:400px  ---> means ya to width 400px ho maximum se maximum yaa use  se kam ho then chanes will refelect */
 /* Tablet view: always collapsed */
 @media (max-width: 1020px) {
     .profile-sidebar {

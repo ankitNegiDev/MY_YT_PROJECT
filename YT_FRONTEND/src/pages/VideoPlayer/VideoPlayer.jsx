@@ -412,6 +412,7 @@ function VideoPlayer() {
     const { videoId } = useParams();
     const [video, setVideo] = useState(null);
     const [loading, setLoading] = useState(true);
+    // videoArray--- > random index --
 
     useEffect(() => {
         async function fetchVideo() {

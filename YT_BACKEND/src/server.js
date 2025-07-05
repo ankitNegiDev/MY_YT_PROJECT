@@ -34,3 +34,4 @@ app.get('/ping',function callback(req,res){
     console.log("ping to the server sucessfully\n");
     return res.send("<h1>hii ping sucessfully</h1>");
 });
+

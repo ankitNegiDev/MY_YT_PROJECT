@@ -24,7 +24,6 @@ api.interceptors.request.use(function (config) {
     //     console.error("Error parsing user from localStorage", error);
     //     user = null;
     // }
-    
 
     // If user and token exist then add Authorization header to request
     // This is needed for protected API routes where token verification is required

@@ -10,8 +10,10 @@ console.log("user in user route ---> ");
  */
 // for sing up or registration // /api/user/sing
 // userRouter.post('/signup',upload.single('profilePhoto'),registerUser);
+// userRouter.post('/signup', upload.single('profilePhoto'), validateUserSignup, registerUser);
 
 userRouter.post('/signup', upload.single('profilePhoto'), registerUser);
+
 
 
 // for login ..
