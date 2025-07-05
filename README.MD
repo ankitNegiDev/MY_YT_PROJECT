@@ -6,6 +6,12 @@ This repository contains both the frontend and backend code for a YouTube-style 
 
 ---
 
+## `Live link of project`
+
+- [Project live link](https://my-yt-project-omega.vercel.app/)
+
+---
+
 ## `Project Demo video`
 
 - [Project demo video link](https://drive.google.com/file/d/1JsrwvqJHxpgWnUDfttcl1GvrLBLeWO1N/view)
@@ -16,6 +22,7 @@ This repository contains both the frontend and backend code for a YouTube-style 
 
 - [YouTube Clone (Frontend \& Backend)](#youtube-clone-frontend--backend)
   - [Overview](#overview)
+  - [`Live link of project`](#live-link-of-project)
   - [`Project Demo video`](#project-demo-video)
   - [Table of contents](#table-of-contents)
   - [Key Features](#key-features)
