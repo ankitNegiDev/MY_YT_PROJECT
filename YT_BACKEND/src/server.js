@@ -13,10 +13,28 @@ app.use(express.text());
 app.use(express.urlencoded({ extended: true })); 
 
 // Allowing requests from frontend ... always write it before ur routes..
+// app.use(cors({
+//     origin: 'http://localhost:5173',
+//     credentials: true
+// }));
+
+// https://my-yt-project-omega.vercel.app/ frontedn deployed url
+
+// app.use(cors({
+//     origin: 'https://my-yt-project-omega.vercel.app',
+//     credentials: true
+// }));
+
+
+
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: [
+        'http://localhost:5173',
+        'https://my-yt-project-omega.vercel.app'
+    ],
     credentials: true
 }));
+
 
 app.use('/api',apiRouter);
 
