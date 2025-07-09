@@ -11,7 +11,7 @@ function ErrorPage(props) {
                 <div className="error-page-container">
                     <img
                         className="error-image"
-                        src={props.image || "/src/assets/warning.png"}
+                        src={props.image || "/assets/warning.png"}
                         alt="Error"
                     />
                     <h3 className="error-title">{props.title || "Something went wrong"}</h3>

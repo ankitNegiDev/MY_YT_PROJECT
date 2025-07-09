@@ -102,6 +102,8 @@ function Home() {
 
     console.log("videos in state array inside the HOME.jsx -----> \n", videos);
 
+    // console.log("home page is moounted but ind production video are not fetched automatically but wait sometimes it comes ");
+
     return (
         <div className={`home-container ${isSidebarVisible ? 'sidebar-expanded' : 'sidebar-collapsed'}`}>
             {videos.map(function callback(singleVideo) {

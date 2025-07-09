@@ -632,7 +632,7 @@ function Profile() {
                     {channelInfo && (
                         <>
                             <div className="channel-banner">
-                                <img src={channelInfo.channelBanner || "/src/assets/confetti.png"} alt="Channel Banner" />
+                                <img src={channelInfo.channelBanner || "/assets/confetti.png"} alt="Channel Banner" />
                             </div>
 
                             <div className="channel-header">
