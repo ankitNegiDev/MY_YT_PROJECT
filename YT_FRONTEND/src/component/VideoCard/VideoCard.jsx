@@ -77,7 +77,7 @@ import { formatViews } from "../../utils/viewsFormating";
 
 function VideoCard({ videoData }) {
     let video = videoData;
-    console.log("video is : ",video);
+    // console.log("video is : ",video);
     // const auth = useContext(AuthContext); // no use of it it wil set avatar based on the user which is loged in..
     
 

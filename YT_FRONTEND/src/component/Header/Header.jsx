@@ -266,7 +266,7 @@ function YouTubeLogo() {
 }
 
 function Header() {
-    console.log("header is started rendering =================================== \n");
+    // console.log("header is started rendering =================================== \n");
     const auth = useContext(AuthContext);
     const { toggleSidebar } = useContext(SidebarContext);
     const navigate = useNavigate();
@@ -410,7 +410,7 @@ function Header() {
         return buttons;
     }
 
-    console.log("header is rendered ended =====================================\n");
+    // console.log("header is rendered ended =====================================\n");
     return (
         <div className="header-wrapper">
             <div className="header-top">

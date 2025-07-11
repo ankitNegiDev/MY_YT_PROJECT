@@ -91,7 +91,7 @@ function Home() {
         async function fetchVideos() {
             try {
                 let response = await api.get('/video');
-                console.log("response comes after /api/videos -> get request ===>  \n", response);
+                // console.log("response comes after /api/videos -> get request ===>  \n", response);
                 setVideos(response.data.data.videoData);
             } catch (error) {
                 console.log("error occurred in while fetching all videos in home.jsx\n", error);
@@ -100,7 +100,7 @@ function Home() {
         fetchVideos();
     }, []);
 
-    console.log("videos in state array inside the HOME.jsx -----> \n", videos);
+    // console.log("videos in state array inside the HOME.jsx -----> \n", videos);
 
     // console.log("home page is moounted but ind production video are not fetched automatically but wait sometimes it comes ");
 
